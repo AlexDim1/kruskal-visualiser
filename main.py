@@ -1,4 +1,4 @@
-from KruskalVisualiser import KruskalVisualiser
+from kruskal.KruskalVisualiser import KruskalVisualiser
 
 
 def main():
