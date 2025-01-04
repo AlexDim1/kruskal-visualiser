@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 from networkx import Graph
 
-from UnionFind import UnionFind
+from kruskal.UnionFind import UnionFind
 
 
 class KruskalVisualiser:
