@@ -22,7 +22,7 @@ class KruskalVisualiser:
         G, pos = self.__initialise_nx_graph(graph)
 
         # Plot the initial graph
-        self.__visualise_graph(G, pos)
+        self.__visualise_graph(G, pos, animation_delay)
 
         total_weight = 0
 
