@@ -64,11 +64,17 @@ class KruskalVisualiser:
                         weight,
                         animation_delay=2):
         mst_edges = [(e[0], e[1]) for e in mst]
+
+        connected_nodes = set()
+        for edge in mst_edges:
+            connected_nodes.update(edge)
+
         edge_colors = ["red" if (a, b) in mst_edges or (b, a) in mst_edges else "gray" for a, b in graph.edges()]
         nx.draw(graph, layout, with_labels=True, node_color="lightblue", edge_color=edge_colors,
                 width=[2 if color == "red" else 1 for color in edge_colors])
         nx.draw_networkx_edge_labels(graph, layout,
                                      edge_labels={(u, v): d["weight"] for u, v, d in graph.edges(data=True)})
+        nx.draw_networkx_nodes(graph, layout, nodelist=list(connected_nodes), node_color='green')
         plt.title(f"Step: Added Edge ({a}, {b}) with Weight {weight}")
         if animation_delay > 0:
             plt.pause(animation_delay)
@@ -89,3 +95,4 @@ class KruskalVisualiser:
             for neighbor, weight in neighbors:
                 edges.add((min(node, neighbor), max(node, neighbor), weight))
         return list(edges)
+
