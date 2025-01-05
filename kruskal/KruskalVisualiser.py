@@ -28,6 +28,10 @@ class KruskalVisualiser:
 
         for edge in edges:
             a, b, weight = edge
+
+            if len(mst) == len(nodes) - 1:
+                break
+
             if uf.union(node_to_index[a], node_to_index[b]):
                 print(f"Added edge ({a}, {b}) with weight {weight} to MST.")
                 mst.append(edge)
